@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .center{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    td {
+        padding: 10px;}
+    table{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    body {
+        /* background-color: #140b00; */
+        /* background-color: black; */
+    }
+    /* img{
+        border: 2px solid white;
+    } */
+</style>
+
+</head>
+
+<body>
+    <div>
+        <h1> 
+            Table View Page
+        </h1>
+    </div>
+    
+    <img src="{{url_for('static',filename='keanu.jpeg')}}", class = "center", alt="candle unlit, go to about page">
+
+
+
+    <table style="width:80%" >
+        {% for i in range(msgStoreList|length //rowNum)%} 
+        
+        <tr>
+            {%for j in range(i*rowNum, i*rowNum + rowNum)%}
+            
+            <td>
+
+
+                <!-- If it is lit up -->
+                {%if msgStoreList[j].getIsLit()%}
+                    <form action="/candleread", method='post'>
+                        <input type="hidden" name='candleNum' value="{{j}}">
+                        <input type="image" src="{{url_for('static',filename='writtenCandle.gif')}}" alt= "Submit" style="width:240px;height:300px;">
+                    </form>
+                {%else%}
+                <!-- Otherwise not lit up, let user write to the Candle -->
+                    <form action="/candlewrite", method='post'>
+                        <input type="hidden" name='candleNum' value="{{j}}">
+                        <input type="image" src="{{url_for('static',filename='unwrittenCandle.gif')}}" alt= "Submit" style="width:240px;height:300px;">
+                    </form>
+                {%endif%}
+
+                
+
+
+                
+            </td>
+            
+            {%endfor%}
+          
+        </tr>
+        {%endfor%}
+      </table>
+
+   
+    
+
+</body>

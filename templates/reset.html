@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+
+</head>
+
+<body>
+
+    <a href="./home">Home page</a>
+
+    <p>
+        This is the page to reset the messages
+    </p>
+
+    <form action = "/resetresult" method = "post" >
+
+        <p>Please select which lantern you want to reset. Indices start from 0.</p>
+        <input type="radio" id="allRadio" name="candleNum" value="All">
+        <label for="allRadio">All</label><br>
+
+        {%for i in range(candlesList|length) if not candlesList[i].isSpecialLantern()%}
+
+        <input type="radio" id="specificCandle" name="candleNum" value={{i}}>
+        <label for="specificCandle">{{i}}</label><br>
+        {%endfor%}
+       
+
+
+        <p>Please enter the password:</p>
+        <p><input type = "text" name = "password" ></p>
+        <p><input type="submit" value="submit"></p>
+      </form> 
+
+
+    
+
+    
+
+</body>

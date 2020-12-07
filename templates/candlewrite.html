@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<style>
+    .center{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .tall_height{
+        height: 20%;
+    }
+    textarea{
+        resize: vertical; 
+        max-height: 200px;  
+    }
+    form {
+        text-align: center;
+    }
+    body {
+        background-color: black;
+    }
+    p{
+        color:beige;
+        
+    }
+    a{
+        color:beige;
+    }
+</style>
+
+</head>
+
+<body>
+<!-- 
+    <div>
+    {% if lit%}
+    <img src="{{url_for('static',filename='candle_lit.jpg')}}" alt="unlit candle" class= "center">
+    {%else%}
+    <img src="{{url_for('static',filename='candle_unlit.jpg')}}" alt="unlit candle" class="center">
+    {%endif%}
+    </div> -->
+    <!-- <div>
+        <img src="{{url_for('static',filename='candle_unlit.jpg')}}" alt="unlit candle" class="center">
+    </div> -->
+
+    <a href="/home">Home</a>
+    <div>
+        <img src="{{url_for('static',filename='unwrittenCandle.gif')}}" alt="UnwrittenLantern" class="center" height="50%" width="20%">
+    </div>
+
+    <form action = "/writeValues" method = "post"  >
+       
+        <p>Message:</p>
+        <input type="hidden" name="index" value={{candleNum}}>
+        <!-- <p><input type = "text" name = "msg" class="tall_height" ></p> -->
+        <textarea rows="5" cols="60" name="msg">Enter msg</textarea>
+        <p><input type="submit" value="submit"></p>
+        
+      </form> 
+
+    
+
+</body>
