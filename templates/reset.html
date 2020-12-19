@@ -16,11 +16,12 @@
 
     <form action = "/resetresult" method = "post" >
 
-        <p>Please select which lantern you want to reset. Indices start from 0.</p>
+        <p>Please select which lantern you want to reset. Indices start from 0 </p>
         <input type="radio" id="allRadio" name="candleNum" value="All">
         <label for="allRadio">All</label><br>
 
-        {%for i in range(candlesList|length) if not candlesList[i].isSpecialLantern()%}
+        {%for i in range(existsList|length) if i!= specialMsgIndex and existsList[i] %}
+
 
         <input type="radio" id="specificCandle" name="candleNum" value={{i}}>
         <label for="specificCandle">{{i}}</label><br>
