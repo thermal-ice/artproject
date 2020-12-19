@@ -11,7 +11,7 @@ About page: http://firstartproject.ue.r.appspot.com/about
 
 V 2.0: 
 Added SQlite database and a reset log page. Now shouldn't be resetting messages every few hours/days. 
-Reset log page: http://firstartproject.ue.r.appspot.com/resetTime
+Reset log page: http://firstartproject.ue.r.appspot.com/resetTimes
 
 
 V 1.0: 
