@@ -36,50 +36,6 @@
     <img src="{{url_for('static',filename='headperson.gif')}}" class="center" alt="Head Picture" width="18%"  style="border: 2px solid grey">
 
 
-    
-    <!-- Old table code -->
-
-    <!-- <table style="width:80%" >
-        {% for i in range(msgStoreList|length //rowNum)%} 
-        
-        <tr>
-            {%for j in range(i*rowNum, i*rowNum + rowNum)%}
-            
-            <td>
-
-                {%if msgStoreList[j].isSpecialLantern()%}
-
-                <form action="/candleread", method='post'>
-                    <input type="hidden" name='candleNum' value="{{j}}">
-                    <input type="image" src="{{url_for('static',filename='specialCandle.gif')}}" alt= "Submit" style="width:240px;height:380px;">
-                </form>
-                
-                <!~~ lit up, send it to candleread ~~>
-                {%elif msgStoreList[j].getIsLit()%}
-                    <form action="/candleread", method='post'>
-                        <input type="hidden" name='candleNum' value="{{j}}">
-                        <input type="image" src="{{url_for('static',filename='writtenCandle.gif')}}" alt= "Submit" style="width:240px;height:300px;">
-                    </form>
-                {%else%}
-                <!~~ Otherwise not lit up, let user write to the Candle ~~>
-                    <form action="/candlewrite", method='post'>
-                        <input type="hidden" name='candleNum' value="{{j}}">
-                        <input type="image" src="{{url_for('static',filename='unwrittenCandle.gif')}}" alt= "Submit" style="width:240px;height:300px;">
-                    </form>
-                {%endif%}
-
-                
-
-
-                
-            </td>
-            
-            {%endfor%}
-          
-        </tr>
-        {%endfor%}
-        </table> -->
-      
     <table style="width:80%" >
         {% for i in range(litCandlesList|length //rowNum)%} 
         
@@ -88,15 +44,15 @@
             
             <td>
 
-                {%if j== specialMsgIndex %}
+                {%if litCandlesList[j]== "SM" %}
 
                 <form action="/candleread", method='post'>
-                    <input type="hidden" name='candleNum' value="{{j}}">
+                    <input type="hidden" name='candleNum' value="SM">
                     <input type="image" src="{{url_for('static',filename='specialCandle.gif')}}" alt= "Submit" style="width:240px;height:380px;">
                 </form>
 
                 <!-- If it is lit up -->
-                {%elif litCandlesList[j]== True%}
+                {%elif litCandlesList[j]== "1"%}
                     <form action="/candleread", method='post'>
                         <input type="hidden" name='candleNum' value="{{j}}">
                         <input type="image" src="{{url_for('static',filename='writtenCandle.gif')}}" alt= "Submit" style="width:240px;height:300px;">
