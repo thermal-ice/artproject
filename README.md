@@ -6,6 +6,7 @@ Link: http://firstartproject.ue.r.appspot.com/home
 
 About page: http://firstartproject.ue.r.appspot.com/about
 
+To install: Set a python virtual environment, install all dependencies from requirements.txt, configure a google sheets file and get the creds.json file from it. Let's be honest, you're probably not gonna install this if you're reading this message.
 
 
 TODO: Clean up code. Figure out how to use a proper database.
